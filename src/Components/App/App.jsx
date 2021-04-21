@@ -41,7 +41,8 @@ class App extends Component {
     if (good === 0) return 0;
     const total = this.countTotalFeedback();
     const positiveFeedbackPercentage = (good / total) * 100;
-    return positiveFeedbackPercentage.toFixed(1);
+    const result = Number(positiveFeedbackPercentage.toFixed(1));
+    return result;
   };
 
   render() {
