@@ -12,30 +12,15 @@ class App extends Component {
   };
 
   handleIncrement = text => {
-    const value = text.toLowerCase();
-    this.setState(prevState => {
-      if (value === 'good') {
-        return {
-          good: prevState.good + 1,
-        };
-      }
-      if (value === 'neutral') {
-        return {
-          neutral: prevState.neutral + 1,
-        };
-      }
-      if (value === 'bad') {
-        return {
-          bad: prevState.bad + 1,
-        };
-      }
-    });
+    this.setState(prevState => ({ [text]: prevState[text] + 1 }));
   };
+
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     return total;
   };
+
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     if (good === 0) return 0;
